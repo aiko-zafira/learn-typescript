@@ -21,6 +21,7 @@
  *  - Determine whether a discount should be applied.
  *  - Calculate the final payment.
 
+<<<<<<< HEAD
  */const mechanicalKeyboardPrice: number = 850000;
 const wirelessMousePrice: number = 275000;
 const mousePadPrice: number = 120000;  
@@ -55,3 +56,6 @@ console.log("Subtotal:", subtotal);
 console.log("Total Items Purchased:", totalItems);
 console.log("Discount Applied:", discount);
 console.log("Final Payment:", finalPayment);
+=======
+ */
+>>>>>>> assign/main

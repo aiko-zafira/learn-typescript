@@ -12,6 +12,7 @@
  * - Total payment before discount
  * - Discount amount
  * - Final payment
+<<<<<<< HEAD
  */
 
 const ratePerHour: number = 8000;
@@ -31,3 +32,6 @@ console.log("Total Billed Hours:", totalBilledHours);
 console.log("Total Payment Before Discount:", totalPaymentBeforeDiscount);
 console.log("Discount Amount:", discount);
 console.log("Final Payment:", finalPayment);
+=======
+ */
+>>>>>>> assign/main

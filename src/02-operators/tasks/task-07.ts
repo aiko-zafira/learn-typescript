@@ -20,6 +20,7 @@
  * - Tax
  * - Final payment
  * - Whether the guest is eligible for free breakfast
+<<<<<<< HEAD
  */
 
 const roomPricePerNight: number = 650000;
@@ -48,3 +49,6 @@ console.log("Discount:", discount);
 console.log("Tax:", tax);
 console.log("Final Payment:", finalPayment);
 console.log("Eligible for Free Breakfast:", isEligibleForFreeBreakfast);
+=======
+ */
+>>>>>>> assign/main

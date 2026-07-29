@@ -15,6 +15,7 @@
  * 1. Define a proper type for the product information.
  * 2. Store the product data in a single collection.
  * 3. Display the product data using console.log.
+<<<<<<< HEAD
  */
 
 const shoppingCart: { productCode: string; productName: string; price: number; quantity: number; isFreeShipping: boolean }[] = [
@@ -25,3 +26,6 @@ const shoppingCart: { productCode: string; productName: string; price: number; q
 ];
 
 console.log("Shopping Cart:", shoppingCart);
+=======
+ */
+>>>>>>> assign/main

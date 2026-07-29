@@ -9,6 +9,7 @@
  * 2. Implement a type that you defined on 3 books data.
  * 
  * display the book data using console.log.
+<<<<<<< HEAD
  */
 
 const book1:{ isbn:string; title:string; author:string; totalPages: number; category: string; isAvailable: boolean } = {
@@ -41,3 +42,6 @@ const book3:{ isbn: string; title: string; author: string; totalPages: number; c
 console.log("Book 1:", book1);
 console.log("Book 2:", book2);
 console.log("Book 3:", book3);
+=======
+ */
+>>>>>>> assign/main

@@ -20,6 +20,7 @@
  * 1. Define a proper type for the temperature information.
  * 2. Store the temperature data in a single collection.
  * 3. Display the temperature data using console.log.
+<<<<<<< HEAD
  */
 
 const temperatureReadings: { time: string; temperature: number }[] = [
@@ -34,3 +35,6 @@ const temperatureReadings: { time: string; temperature: number }[] = [
 ];
 
 console.log("Temperature Readings:", temperatureReadings);
+=======
+ */
+>>>>>>> assign/main

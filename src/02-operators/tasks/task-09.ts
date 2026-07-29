@@ -33,6 +33,7 @@
  * - Reward points
  * - Free shipping eligibility
 
+<<<<<<< HEAD
  */
 
 const mechanicalKeyboardPrice: number = 850000;
@@ -78,3 +79,6 @@ console.log("VAT:", vat);
 console.log("Final Payment:", finalPayment);
 console.log("Reward Points Earned:", rewardPoints);
 console.log("Eligible for Free Shipping:", isEligibleForFreeShipping);
+=======
+ */
+>>>>>>> assign/main

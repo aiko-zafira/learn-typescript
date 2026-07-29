@@ -10,6 +10,7 @@
  * 2. Implement a type that you defined on 3 registration data.
  * 
  * display the registration data using console.log.
+<<<<<<< HEAD
  */
 
 const registration1: { studentID: string; fullName: string; gradeLevel: number; courseID: string; courseTitle: string; instructorName: string; totalLearningHours: number; registrationDate: string; isPaymentCompleted: boolean } = {
@@ -51,3 +52,6 @@ const registration3: { studentID: string; fullName: string; gradeLevel: number; 
 console.log("Registration 1:", registration1);
 console.log("Registration 2:", registration2);
 console.log("Registration 3:", registration3);
+=======
+ */
+>>>>>>> assign/main
