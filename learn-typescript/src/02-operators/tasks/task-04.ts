@@ -21,37 +21,34 @@
  *  - Determine whether a discount should be applied.
  *  - Calculate the final payment.
 
- */const mechanicalKeyboardPrice: number = 850000;
+ */
+const mechanicalKeyboardPrice: number = 850000;
 const wirelessMousePrice: number = 275000;
 const mousePadPrice: number = 120000;  
-
 const mechanicalKeyboardQuantity: number = 1;
 const wirelessMouseQuantity: number = 2;
 const mousePadQuantity: number = 1;
-
-const isPremiumMember: boolean = true;
-
-// Calculate subtotal
+const isPremiumMember: boolean = false;
 const subtotal: number = (mechanicalKeyboardPrice * mechanicalKeyboardQuantity) +
                          (wirelessMousePrice * wirelessMouseQuantity) +
                          (mousePadPrice * mousePadQuantity);
+const shippingPremium: string = isPremiumMember ? "Free Ongkir" : "TIdak Mendapatkan Gratis Ongkir";
 
-// Count total purchased items
+
 let totalItems: number = 0;
 totalItems += mechanicalKeyboardQuantity;
 totalItems += wirelessMouseQuantity;
 totalItems += mousePadQuantity;
 
-// Determine discount
 let discount: number = 0;
 if (subtotal > 1000000) {
-  discount = subtotal * 0.10; // 10% discount
+  discount = subtotal * 0.10;
 }
 
-// Calculate final payment
 const finalPayment: number = subtotal - discount;
-
+console.log("==== PAYMENT ====");
 console.log("Subtotal:", subtotal);
 console.log("Total Items Purchased:", totalItems);
 console.log("Discount Applied:", discount);
 console.log("Final Payment:", finalPayment);
+console.log("Premium Member :", shippingPremium);

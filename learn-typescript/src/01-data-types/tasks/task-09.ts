@@ -13,6 +13,7 @@
  * 1. Define a proper type for the participant information.
  * 2. Store the participant data in a single collection.
  * 3. Display the participant data using console.log.
+<<<<<<< HEAD
  */
 
 const participants: { studentID: string; name: string; age: number; hasPaid: boolean }[] = [
@@ -22,3 +23,6 @@ const participants: { studentID: string; name: string; age: number; hasPaid: boo
 ];
 
 console.log("Participants:", participants);
+=======
+ */
+>>>>>>> assign/main

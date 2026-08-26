@@ -25,9 +25,12 @@ const totalPaymentBeforeDiscount: number = totalBilledHours * ratePerHour;
 const discount: number = totalPaymentBeforeDiscount * 0.15;
 const finalPayment: number = totalPaymentBeforeDiscount - discount;
 
-console.log("Total Playing Time (minutes):", totalPlayingTime);
-console.log("Remaining Minutes:", remainingMinutes);
-console.log("Total Billed Hours:", totalBilledHours);
-console.log("Total Payment Before Discount:", totalPaymentBeforeDiscount);
-console.log("Discount Amount:", discount);
-console.log("Final Payment:", finalPayment);
+console.log(" ==== PAYMENT ==== ");
+console.log(" Total Playing Time (minutes) :", totalPlayingTime);
+console.log(" Remaining Minutes :", remainingMinutes);
+console.log(" Total Billed Hours :", totalBilledHours);
+console.log(" Total Payment Before Discount :", totalPaymentBeforeDiscount);
+console.log(" Discount Amount :", discount);
+console.log("====================");
+console.log(" TOTAL :", finalPayment);
+
