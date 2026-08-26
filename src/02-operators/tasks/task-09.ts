@@ -33,7 +33,6 @@
  * - Reward points
  * - Free shipping eligibility
 
-<<<<<<< HEAD
  */
 
 const mechanicalKeyboardPrice: number = 850000;
@@ -48,29 +47,16 @@ const voucherValue: number = 100000;
 const isPremiumMember: boolean = true;
 const rewardPointRate: number = 50000;
 
-// Calculate product subtotal
 const productSubtotal: number = (mechanicalKeyboardPrice * mechanicalKeyboardQuantity) +
                                 (wirelessMousePrice * wirelessMouseQuantity) +
                                 (monitorStandPrice * monitorStandQuantity);
-
-// Calculate membership discount
 const membershipDiscount: number = isPremiumMember ? productSubtotal * 0.10 : 0;
-
-// Calculate payment before tax
 const paymentBeforeTax: number = productSubtotal - membershipDiscount - voucherValue;
-
-// Calculate VAT
 const vat: number = paymentBeforeTax * 0.11;
-
-// Calculate final payment
 const finalPayment: number = paymentBeforeTax + vat;
-
-// Calculate reward points
 const rewardPoints: number = Math.floor(paymentBeforeTax / rewardPointRate);
-
-// Determine free shipping eligibility
 const isEligibleForFreeShipping: boolean = isPremiumMember || paymentBeforeTax > 1500000;
-
+let tanggallahir : string = "07-05-10";
 console.log("Product Subtotal:", productSubtotal);
 console.log("Membership Discount:", membershipDiscount);
 console.log("Voucher Deduction:", voucherValue);
@@ -79,6 +65,3 @@ console.log("VAT:", vat);
 console.log("Final Payment:", finalPayment);
 console.log("Reward Points Earned:", rewardPoints);
 console.log("Eligible for Free Shipping:", isEligibleForFreeShipping);
-=======
- */
->>>>>>> assign/main

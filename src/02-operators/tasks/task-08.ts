@@ -23,7 +23,6 @@
  * - Electricity bill
  * - Final bill
  * - Green Energy Program eligibility
-<<<<<<< HEAD
  */
 
 const previousMeter: number = 25640;
@@ -55,6 +54,3 @@ console.log("Electricity Bill:", electricityBill);
 console.log("Final Bill:", finalBill);
 console.log("Eligible for Green Energy Program:", isEligibleForGreenEnergyProgram);
 
-=======
- */
->>>>>>> assign/main

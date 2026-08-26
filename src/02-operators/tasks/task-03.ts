@@ -16,9 +16,5 @@
  * - Overtime pay
  * - Bonus
  * - Final salary
-<<<<<<< HEAD
  */
 
-=======
- */
->>>>>>> assign/main

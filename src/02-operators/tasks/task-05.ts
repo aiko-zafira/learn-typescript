@@ -32,7 +32,6 @@
  * - Determine the scholarship amount using the ternary operator.
  * - Calculate the remaining scholarship budget.
  * - Display whether the student is accepted.
-<<<<<<< HEAD
  */
 
 const studentName: string = "Alya Putri";
@@ -54,6 +53,3 @@ console.log("Has Disciplinary Record:", hasDisciplinaryRecord);
 console.log("Documents Complete:", documentsComplete);
 console.log("Scholarship Amount:", scholarshipAmount);
 console.log("Remaining Scholarship Budget:", remainingBudget);
-=======
- */
->>>>>>> assign/main

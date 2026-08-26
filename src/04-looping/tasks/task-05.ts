@@ -24,3 +24,41 @@ const scores = [
     67, 79, 94, 83, 71,
     96, 65, 87, 74, 90
 ];
+
+// 1. Initialize variables for counting medals and the total score
+let goldCount = 0;
+let silverCount = 0;
+let bronzeCount = 0;
+let noMedalCount = 0;
+let totalScore = 0;
+
+// 2. Iterate through the scores using a loop
+for (let i = 0; i < scores.length; i++) {
+    const score = scores[i];
+    
+    // Add to the total score for the average calculation later
+    totalScore += score;
+
+    // 3. Use conditional logic to check the medal brackets
+    if (score >= 95) {
+        goldCount++;
+    } else if (score >= 85) {
+        // We only need to check if it's >= 85 here, because the previous 
+        // condition already caught anything 95 or higher.
+        silverCount++;
+    } else if (score >= 75) {
+        bronzeCount++;
+    } else {
+        noMedalCount++;
+    }
+}
+
+// 4. Calculate the average score
+const averageScore = totalScore / scores.length;
+
+// Display the results
+console.log(`Gold Medals: ${goldCount}`);
+console.log(`Silver Medals: ${silverCount}`);
+console.log(`Bronze Medals: ${bronzeCount}`);
+console.log(`No Medal: ${noMedalCount}`);
+console.log(`Average Score: ${averageScore}`);

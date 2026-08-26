@@ -8,7 +8,6 @@
  * 2. Implement a type that you defined on 3 products data.
  * 
  * display the product data using console.log.
-<<<<<<< HEAD
  */
 const product1: { productCode: string; productName: string; sellingPrice: number; stockQuantity: number; productWeight: number; averageCustomerRating: number; isDiscounted: boolean } = {
   productCode: "PRD001",
@@ -43,6 +42,3 @@ const product3: { productCode: string; productName: string; sellingPrice: number
 console.log("Product 1:", product1);
 console.log("Product 2:", product2);
 console.log("Product 3:", product3);
-=======
- */
->>>>>>> assign/main

@@ -22,6 +22,6 @@ const tuitionPaid: boolean = true;
 
 const isEligible: boolean = finalScore >= 75 && attendance >= 90 && tuitionPaid === true;  
 console.log(isEligible);
-=======
- */
->>>>>>> assign/main
+console.log("Final Score:", finalScore);
+console.log("Attendance:", attendance);
+console.log("Tuition Paid:", tuitionPaid);

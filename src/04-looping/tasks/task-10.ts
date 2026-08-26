@@ -25,3 +25,49 @@ const submissions = [
     { student: "Gita", submitted: true, score: 90 },
     { student: "Hana", submitted: true, score: 73 }
 ];
+
+// 1. Initialize all tracking variables
+let submittedCount = 0;
+let notSubmittedCount = 0;
+let passedCount = 0;
+let revisionCount = 0;
+const notSubmittedNames = [];
+const revisionNames = [];
+let totalScore = 0;
+
+// 2. Loop through every submission
+for (let i = 0; i < submissions.length; i++) {
+    const record = submissions[i];
+
+    // Add score to total for the class average calculation
+    totalScore += record.score;
+
+    // 3. First, check if the student submitted the assignment
+    if (record.submitted === true) {
+        submittedCount++;
+
+        // 4. If they submitted, evaluate their score (Nested Logic)
+        if (record.score >= 75) {
+            passedCount++;
+        } else {
+            revisionCount++;
+            revisionNames.push(record.student);
+        }
+    } else {
+        // 5. If they didn't submit
+        notSubmittedCount++;
+        notSubmittedNames.push(record.student);
+    }
+}
+
+// 6. Calculate class average
+const averageScore = totalScore / submissions.length;
+
+// Display the results
+console.log(`Submitted: ${submittedCount} students`);
+console.log(`Did Not Submit: ${notSubmittedCount} students`);
+console.log(`Passed: ${passedCount} students`);
+console.log(`Require Revision: ${revisionCount} students`);
+console.log(`Did Not Submit Names: ${notSubmittedNames.join(", ")}`);
+console.log(`Require Revision Names: ${revisionNames.join(", ")}`);
+console.log(`Class Average: ${averageScore}`);

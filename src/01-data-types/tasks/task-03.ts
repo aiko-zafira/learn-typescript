@@ -8,7 +8,6 @@
  * 2. Implement a type that you defined on 3 students data.
  * 
  * display the student data using console.log.
-<<<<<<< HEAD
  */
 
 const student1: { studentID: string; fullName: string; age: number; isActive: boolean } = {
@@ -35,6 +34,3 @@ const student3: { studentID: string; fullName: string; age: number; isActive: bo
 console.log("Student 1:", student1);
 console.log("Student 2:", student2);
 console.log("Student 3:", student3);
-=======
- */
->>>>>>> assign/main

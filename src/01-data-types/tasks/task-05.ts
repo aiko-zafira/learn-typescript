@@ -8,7 +8,6 @@
  * 2. Implement a type that you defined on 3 attendance data.
  * 
  * display the attendance data using console.log.
-<<<<<<< HEAD
  */
 
 const attendance1:{employeeID:string; employeeName:string; date:string; checkInTime:string; checkOutTime:string; totalWorkingHours:number; isPresent:boolean} = {
@@ -44,6 +43,3 @@ const attendance3:{employeeID:string; employeeName:string; date:string; checkInT
 console.log("Attendance 1:", attendance1);
 console.log("Attendance 2:", attendance2);
 console.log("Attendance 3:", attendance3);
-=======
- */
->>>>>>> assign/main
