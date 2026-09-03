@@ -1,34 +1,38 @@
 /**
- * Module 05: Functions — Task 01
+ * Modul 05: Fungsi — Tugas 01
  *
- * Instructions:
- * 1. Implement each function as described.
- * 2. Run: npm run example src/05-functions/tasks/task-01.ts
+ * Instruksi:
+ * 1. Implementasikan setiap fungsi sesuai deskripsi.
+ * 2. Jalankan: npm run example src/05-functions/tasks/task-01.ts
  */
 
-// TODO: Return a greeting string: "Hello, {name}! Welcome to {course}."
 function welcomeMessage(name: string, course: string = "TypeScript"): string {
-  return ""; // replace with your code
+  return `Hello, ${name}! Welcome to ${course}.`; 
 }
 
-// TODO: Return the maximum value in the array (do NOT use Math.max)
 function findMax(numbers: number[]): number {
-  return 0; // replace with your code
+  if (numbers.length === 0) {
+    throw new Error("Array kosong");
+  }
+  let max = numbers[0];
+  for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > max) {
+      max = numbers[i];
+    }
+  }
+  return max;
 }
 
-// TODO: Return a new array with each number doubled (use .map)
 function doubleAll(numbers: number[]): number[] {
-  return []; // replace with your code
+  return numbers.map(n => n * 2);
 }
 
-// TODO: Return only numbers greater than threshold (use .filter)
 function filterAbove(numbers: number[], threshold: number): number[] {
-  return []; // replace with your code
+  return numbers.filter(n => n > threshold);
 }
 
-// TODO: Implement using an arrow function assigned to a const
 const square = (n: number): number => {
-  return 0; // replace with your code
+  return n * n;
 };
 
 // --- Tests (do not modify) ---

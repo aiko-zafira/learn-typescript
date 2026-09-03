@@ -1,52 +1,45 @@
 /**
- * Module 07: Arrays & Objects — Task 01
- *
- * Instructions:
- * 1. Implement each function using array/object methods.
- * 2. Run: npm run example src/07-arrays-and-objects/tasks/task-01.ts
+ * A teacher has a list of students and their exam scores below.
+ * The teacher wants to analyze the exam results.
+ * Tasks:
+ * 1. Get an array containing only the student names.
+ * expected array: ["Andi", "Budi", "Citra", "Deni", "Eka"]
+ * 2. Get students who passed. Passing score is >= 70. 
+ * expected array: [
+ * { name: "Andi", score: 85 },
+ * { name: "Citra", score: 91 },
+ * { name: "Deni", score: 74 }
+ * ]
+ * 
+ * 3. Find the student named "Citra".
+ * 4. Calculate the average score.
  */
-
-interface Product {
-  id: number;
+type Student = {
   name: string;
-  price: number;
+  score: number;
 }
-
-const products: Product[] = [
-  { id: 1, name: "Pen", price: 1.5 },
-  { id: 2, name: "Notebook", price: 3.0 },
-  { id: 3, name: "Eraser", price: 0.5 },
-  { id: 4, name: "Ruler", price: 2.0 },
+const students = [
+  { name: "Andi", score: 85 },
+  { name: "Budi", score: 62 },
+  { name: "Citra", score: 91 },
+  { name: "Deni", score: 74 },
+  { name: "Eka", score: 55 },
 ];
 
-// TODO: Return total price of all products (use reduce)
-function getTotalPrice(items: Product[]): number {
-  return 0; // replace with your code
-}
+const studentNames = students.map(student => student.name);
+const passedStudents = students.filter(student => student.score >= 70);
+const citra = students.find(student => student.name === "Citra");
+const totalScore = students.reduce((sum, student) => sum + student.score, 0);
+const averageScore = totalScore / students.length;
 
-// TODO: Return product names as a string array (use map)
-function getProductNames(items: Product[]): string[] {
-  return []; // replace with your code
-}
+console.log("====== 1. STUDENT NAMES ======");
+console.log(studentNames);
 
-// TODO: Return products with price less than maxPrice (use filter)
-function getAffordable(items: Product[], maxPrice: number): Product[] {
-  return []; // replace with your code
-}
+console.log("====== 2. PASSED STUDENTS ======");
+console.log(passedStudents);
 
-// TODO: Find product by id (use find), return undefined if not found
-function findProductById(items: Product[], id: number): Product | undefined {
-  return undefined; // replace with your code
-}
+console.log("====== 3. FIND CITRA ======");
+console.log(citra);
 
-// TODO: Return a new product object with an updated price (use spread, do NOT mutate original)
-function updatePrice(product: Product, newPrice: number): Product {
-  return product; // replace with your code
-}
-
-// --- Tests (do not modify) ---
-console.log("getTotalPrice:", getTotalPrice(products)); // expected: 7
-console.log("getProductNames:", getProductNames(products)); // expected: ["Pen", "Notebook", "Eraser", "Ruler"]
-console.log("getAffordable(<2):", getAffordable(products, 2)); // expected: Pen and Eraser
-console.log("findProductById(2):", findProductById(products, 2)?.name); // expected: "Notebook"
-console.log("updatePrice:", updatePrice(products[0], 2.0)); // expected: { id: 1, name: "Pen", price: 2.0 }
+console.log("====== 4. AVERAGE SCORE ======");
+console.log(averageScore);
