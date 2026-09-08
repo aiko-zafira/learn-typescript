@@ -14,13 +14,16 @@ function registerStudent(
     callback(studentName);
 }
 
-/** The school provides the callback: */
 function showRegistrationMessage(name: string): void {
     console.log(`${name} successfully registered.`);
 }
 
-/** show registration message */
-registerStudent(`John Cena`, showRegistrationMessage)
+function showWelcomingMessage(name: string): void {
+    console.log(`Welcome to the school, ${name}! We are thrilled to have you join our student body.`);
+}
+
+registerStudent(`John Cena`, showRegistrationMessage);
+registerStudent(`John Cena`, showWelcomingMessage);
 
 /** 
  * TASK:

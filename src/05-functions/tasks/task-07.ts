@@ -11,6 +11,12 @@
  * Complete following functions!
  */
 
+type Student = {
+  name: string;
+  major: string;
+  active: boolean;
+};
+
 const students = [
   {
     name: "Alya",
@@ -39,18 +45,44 @@ const students = [
   }
 ];
 
-function countActiveStudents(...){
-
+function countActiveStudents(studentsList: Student[]): number {
+    let count = 0;
+    for (let i = 0; i < studentsList.length; i++) {
+        if (studentsList[i].active === true) {
+            count++;
+        }
+    }
+    return count;
 }
 
-function countInactiveStudents(...){
-
+function countInactiveStudents(studentsList: Student[]): number {
+    let count = 0;
+    for (let i = 0; i < studentsList.length; i++) {
+        if (studentsList[i].active === false) {
+            count++;
+        }
+    }
+    return count;
 }
 
-function countStudentsByMajor(...){
-
+function countStudentsByMajor(studentsList: Student[], majorName: string): number {
+    let count = 0;
+    for (let i = 0; i < studentsList.length; i++) {
+        if (studentsList[i].major === majorName) {
+            count++;
+        }
+    }
+    return count;
 }
 
-function printEnrollmentReport(...){
-    
+function printEnrollmentReport(studentsList: Student[]): void {
+    console.log("=== Laporan Pendaftaran Mahasiswa ===");
+    console.log(`Total Students            : ${studentsList.length}`);
+    console.log(`Active Students           : ${countActiveStudents(studentsList)}`);
+    console.log(`Inactive Students         : ${countInactiveStudents(studentsList)}`);
+    console.log(`Software Engineering      : ${countStudentsByMajor(studentsList, "Software Engineering")}`);
+    console.log(`Networking                : ${countStudentsByMajor(studentsList, "Networking")}`);
+    console.log(`Multimedia                : ${countStudentsByMajor(studentsList, "Multimedia")}`);
 }
+
+printEnrollmentReport(students);

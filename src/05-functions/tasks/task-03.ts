@@ -18,3 +18,16 @@ const prices = [
     420000,
     125000
 ];
+
+function calculateTotalPrice(priceList: number[]): number {
+    let total = 0; 
+
+    for (let i = 0; i < priceList.length; i++) {
+        total += priceList[i]; 
+    }
+
+    return total;
+}
+
+const finalTotal = calculateTotalPrice(prices);
+console.log(`The total purchase price is: Rp${finalTotal}`);

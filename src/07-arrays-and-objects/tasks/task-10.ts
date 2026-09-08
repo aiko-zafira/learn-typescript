@@ -15,6 +15,24 @@
         passRate: 33.33
     }
  */
+
+    type Question = {
+    id: number
+    question: string
+    correctAnswer: string
+    category: string
+}
+
+type SubmissionAnswer = {
+    questionId: number
+    answer: string
+}
+
+type Submission = {
+    student: string
+    answers: SubmissionAnswer[]
+}
+
 const questions = [
     {
         id: 1,
@@ -72,3 +90,52 @@ const submissions = [
     },
 ];
 
+const questionMap = new Map<number, Question>();
+questions.forEach(q => questionMap.set(q.id, q));
+
+const studentResults = submissions.map(sub => {
+    let correctCount = 0;
+    let wrongCount = 0;
+
+    sub.answers.forEach(ans => {
+        const question = questionMap.get(ans.questionId);
+        if (question && question.correctAnswer === ans.answer) {
+            correctCount++;
+        } else {
+            wrongCount++;
+        }
+    });
+
+    return {
+        student: sub.student,
+        correct: correctCount,
+        wrong: wrongCount,
+        score: correctCount * 25
+    };
+});
+const categoryStats: { [category: string]: { totalScore: number; count: number } } = {};
+
+submissions.forEach(sub => {
+    sub.answers.forEach(ans => {
+        const question = questionMap.get(ans.questionId);
+        if (question) {
+            const isCorrect = question.correctAnswer === ans.answer ? 100 : 0;
+            if (!categoryStats[question.category]) {
+                categoryStats[question.category] = { totalScore: 0, count: 0 };
+            }
+            categoryStats[question.category].totalScore += isCorrect;
+            categoryStats[question.category].count += 1;
+        }
+    });
+});
+
+const categoryAverages: { [category: string]: number } = {};
+for (const cat in categoryStats) {
+    categoryAverages[cat] = Number((categoryStats[cat].totalScore / categoryStats[cat].count).toFixed(2));
+}
+
+const totalStudents = studentResults.length;
+const totalScoreSum = studentResults.reduce((sum, s) => sum + s.score, 0);
+const averageScore = Number((totalScoreSum / totalStudents).toFixed(2));
+const highestScore = Math.max(...studentResults.map(s => s.score));
+const lowestScore = Math.min(...studentResults.map(s => s.score));

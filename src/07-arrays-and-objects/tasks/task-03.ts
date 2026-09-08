@@ -9,6 +9,15 @@
  * expected array: ["Deni"]
  * 4. Generate array that contains {name, status}
  */
+type Student = {
+    id: number
+    name: string
+}
+
+type AttendanceRecord = {
+    studentId: number
+    status: "present" | "absent" | "late"
+}
 
 const students = [
     { id: 1, name: "Andi" },
@@ -23,3 +32,37 @@ const attendance = [
     { studentId: 3, status: "present" },
     { studentId: 4, status: "late" },
 ];
+
+// Helper function to find status by student id
+function getAttendanceStatus(studentId: number): string {
+    const record = attendance.find(a => a.studentId === studentId);
+    return record ? record.status : "unknown";
+}
+const presentStudentNames = students
+    .filter(student => getAttendanceStatus(student.id) === "present")
+    .map(student => student.name);
+const absentStudents = students
+    .filter(student => getAttendanceStatus(student.id) === "absent")
+    .map(student => student.name);
+const lateStudents = students
+    .filter(student => getAttendanceStatus(student.id) === "late")
+    .map(student => student.name);
+const studentAttendanceList = students.map(student => {
+    const record = attendance.find(a => a.studentId === student.id);
+    return {
+        name: student.name,
+        status: record ? record.status : "unknown"
+    };
+});
+
+console.log("====== 1. PRESENT STUDENTS ======");
+console.log(presentStudentNames);
+
+console.log("====== 2. ABSENT STUDENTS ======");
+console.log(absentStudents);
+
+console.log("====== 3. LATE STUDENTS ======");
+console.log(lateStudents);
+
+console.log("====== 4. NAME & STATUS LIST ======");
+console.log(studentAttendanceList);

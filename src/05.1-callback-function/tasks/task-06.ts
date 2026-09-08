@@ -26,8 +26,9 @@ type Employee = {
     salary: number
     performance: number
 }
-type PERFORMANCE_STATUS = "Exceeds Expectations" | "Meets Expectations" | "Needs Improvement"
-type EMPLOYEE_BONUS = Employee & { bonus: number }
+
+type PERFORMANCE_STATUS = "Exceeds Expectations" | "Meets Expectations" | "Needs Improvement" | "Unsatisfactory"
+type EMPLOYEE_BONUS = Employee & { bonus: number; finalSalary: number }
 type EMPLOYEE_PERFORMANCE = Employee & { status: PERFORMANCE_STATUS }
 
 const employees: Employee[] = [
@@ -38,27 +39,61 @@ const employees: Employee[] = [
     { name: "Eka", salary: 8000000, performance: 69 }
 ];
 
-
 function calculateFinalSalary(selectedEmployee: Employee): EMPLOYEE_BONUS {
-    // implementation: this function return employee data with bonus and updated final salary
-    return;
+    let bonusRate = 0;
+    if (selectedEmployee.performance >= 90) {
+        bonusRate = 0.15;
+    }
+    if (selectedEmployee.performance >= 80 && selectedEmployee.performance < 90) {
+        bonusRate = 0.10;
+    }
+    if (selectedEmployee.performance >= 70 && selectedEmployee.performance < 80) {
+        bonusRate = 0.05;
+    }
+
+    const bonus = selectedEmployee.salary * bonusRate;
+    const finalSalary = selectedEmployee.salary + bonus;
+
+    return {
+        ...selectedEmployee,
+        bonus,
+        finalSalary
+    };
 }
+
 function getPerformanceStatus(selectedEmployee: Employee): EMPLOYEE_PERFORMANCE {
-    return;
+    let status = "Unsatisfactory";
+    if (selectedEmployee.performance >= 90) {
+        status = "Exceeds Expectations";
+    }
+    if (selectedEmployee.performance >= 80 && selectedEmployee.performance < 90) {
+        status = "Meets Expectations";
+    }
+    if (selectedEmployee.performance >= 70 && selectedEmployee.performance < 80) {
+        status = "Needs Improvement";
+    }
+
+    return {
+        ...selectedEmployee,
+        status: status as PERFORMANCE_STATUS
+    };
 }
 
 function employeeProcess<T>(
     arr: Employee[],
     callback: (employee: Employee) => T
 ): T[] {
-    return;
+    const results: T[] = [];
+    for (const employee of arr) {
+        results.push(callback(employee));
+    }
+    return results;
 }
 
-const employeeWithFinalSalary = employeeProcess(employees, calculateFinalSalary)
-const employeeWithPerformanceStatus = employeeProcess(employees, getPerformanceStatus)
+const employeeWithFinalSalary = employeeProcess(employees, calculateFinalSalary);
+const employeeWithPerformanceStatus = employeeProcess(employees, getPerformanceStatus);
 
 console.log(`====== EMPLOYEES WITH FINAL SALARY + BONUS ======`);
-console.log({ employees: employeeWithFinalSalary })
+console.log({ employees: employeeWithFinalSalary });
 console.log(`====== EMPLOYEES WITH PERFORMANCE STATUS ======`);
-console.log({ employees: employeeWithPerformanceStatus })
-
+console.log({ employees: employeeWithPerformanceStatus });

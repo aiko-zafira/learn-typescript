@@ -7,6 +7,13 @@
  * 4. Calculate the total value of all products currently in stock.
  * 5. Sort available products from most expensive → cheapest.
  */
+type Product = {
+    id: number
+    name: string
+    category: string
+    price: number
+    stock: number
+}
 
 const products = [
     {
@@ -45,3 +52,22 @@ const products = [
         stock: 3,
     },
 ];
+
+const availableProducts = products.filter(product => product.stock > 0);
+const productNames = products.map(product => product.name);
+const totalStockValue = products.reduce((total, product) => {
+    return total + (product.price * product.stock);
+}, 0);
+const sortedAvailableProducts = [...availableProducts].sort((a, b) => b.price - a.price);
+
+console.log("====== 1 & 2. AVAILABLE PRODUCTS ======");
+console.log(availableProducts);
+
+console.log("====== 3. PRODUCT NAMES ======");
+console.log(productNames);
+
+console.log("====== 4. TOTAL STOCK VALUE ======");
+console.log(`Rp${totalStockValue.toLocaleString()}`);
+
+console.log("====== 5. SORTED AVAILABLE PRODUCTS (EXPENSIVE TO CHEAP) ======");
+console.log(sortedAvailableProducts);
