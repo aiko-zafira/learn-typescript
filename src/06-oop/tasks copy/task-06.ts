@@ -43,3 +43,37 @@ class Person {
         console.log(`${this.name}, ${this.age} years old`);
     }
 }
+
+class Student extends Person {
+    constructor(
+        name: string,
+        age: number,
+        public studentId: string,
+        public grade: number
+    ) {
+        super(name, age);
+    }
+
+    showInfo(): void {
+        super.showInfo();
+        console.log(`Student ID: ${this.studentId}`);
+        console.log(`Grade: ${this.grade}`);
+    }
+}
+
+class Teacher extends Person {
+    constructor(
+        name: string,
+        age: number,
+        public employeeId: string,
+        public subject: string
+    ) {
+        super(name, age);
+    }
+
+    showInfo(): void {
+        super.showInfo();
+        console.log(`Employee ID: ${this.employeeId}`);
+        console.log(`Subject: ${this.subject}`);
+    }
+}

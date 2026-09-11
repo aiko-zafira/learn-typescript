@@ -38,36 +38,31 @@
  * - Amount must be greater than 0.
  * - Amount cannot exceed the current balance.
  */
-
 class DigitalWallet {
-    private balance: number;
-
-    constructor(initialBalance: number) {
-        this.balance = initialBalance;
+  private balance: number;
+    constructor(public walletId: string, public owner: string, initialBalance: number) {
+      this.balance = initialBalance;
     }
 
     deposit(amount: number): void {
-        if (amount <= 0) {
-            throw new Error("Deposit amount must be greater than 0");
-        }
+      if (amount > 0) {
         this.balance += amount;
+      }
     }
 
     withdraw(amount: number): void {
-        if (amount <= 0) {
-            throw new Error("Withdrawal amount must be greater than 0");
-        }
-        if (amount > this.balance) {
-            throw new Error("Insufficient funds");
-        }
+      if (amount > 0 && amount <= this.balance) {
         this.balance -= amount;
+      }
     }
 
     getBalance(): number {
-        return this.balance;
+      return this.balance;
     }
 
     showWalletInfo(): void {
-        console.log(`Current balance: Rp${this.balance.toLocaleString()}`);
+      console.log(`Wallet ID: ${this.walletId}`);
+      console.log(`Owner: ${this.owner}`);
+      console.log(`Balance: Rp${this.balance.toLocaleString()}`);
     }
 }

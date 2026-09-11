@@ -42,6 +42,53 @@
  * isAvailable(): returns true when stock > 0, otherwise false
  * getInventoryValue(): calculate price × stock
  */
+class Product {
+    private price: number;
+    private stock: number;
+
+    constructor(
+        public productId: string,
+        public productName: string,
+        initialPrice: number,
+        initialStock: number
+    ) {
+        this.price = initialPrice;
+        this.stock = initialStock;
+    }
+
+    addStock(quantity: number): void {
+        if (quantity > 0) {
+            this.stock += quantity;
+        }
+    }
+
+    removeStock(quantity: number): void {
+        if (quantity > 0 && quantity <= this.stock) {
+            this.stock -= quantity;
+        }
+    }
+
+    changePrice(newPrice: number): void {
+        if (newPrice > 0) {
+            this.price = newPrice;
+        }
+    }
+
+    isAvailable(): boolean {
+        return this.stock > 0;
+    }
+
+    getInventoryValue(): number {
+        return this.price * this.stock;
+    }
+
+    showProductInfo(): void {
+        console.log(`Product ID: ${this.productId}`);
+        console.log(`Name: ${this.productName}`);
+        console.log(`Price: Rp${this.price.toLocaleString()}`);
+        console.log(`Stock: ${this.stock}`);
+    }
+}
 
 const laptop = new Product(
     "PRD001",
