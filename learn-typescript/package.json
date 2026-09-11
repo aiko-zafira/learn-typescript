@@ -1,0 +1,25 @@
+{
+  "name": "learn-typescript",
+  "version": "1.0.0",
+  "description": "A hands-on TypeScript learning template for students",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx",
+    "example": "tsx",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [
+    "typescript",
+    "learning",
+    "tutorial"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "tsx": "^4.23.1",
+    "typescript": "^7.0.2"
+  }
+}
