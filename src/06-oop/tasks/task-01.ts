@@ -38,15 +38,14 @@ console.log(car.getInfo()); // expected: "Toyota Camry"
 console.log(car.getBrand()); // expected: "Toyota"
 */
 
+
 console.log("Complete the TODOs above, then uncomment the test code.");
-// Interface `Animal`
 interface Animal {
   name: string;
   species: string;
   speak(): string;
 }
 
-// Class `Dog` implementing `Animal`
 class Dog implements Animal {
   name: string;
   species: string;
@@ -61,7 +60,6 @@ class Dog implements Animal {
   }
 }
 
-// Class `Cat` implementing `Animal`
 class Cat implements Animal {
   name: string;
   species: string;
@@ -76,7 +74,6 @@ class Cat implements Animal {
   }
 }
 
-// Abstract class `Vehicle`
 abstract class Vehicle {
   protected brand: string;
 
@@ -91,7 +88,6 @@ abstract class Vehicle {
   }
 }
 
-// Class `Car` extending `Vehicle`
 class Car extends Vehicle {
   private model: string;
 
@@ -105,7 +101,6 @@ class Car extends Vehicle {
   }
 }
 
-// Test cases execution
 const dog = new Dog("Buddy");
 const cat = new Cat("Whiskers");
 const car = new Car("Toyota", "Camry");
