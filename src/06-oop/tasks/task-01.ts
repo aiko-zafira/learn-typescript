@@ -39,3 +39,78 @@ console.log(car.getBrand()); // expected: "Toyota"
 */
 
 console.log("Complete the TODOs above, then uncomment the test code.");
+// Interface `Animal`
+interface Animal {
+  name: string;
+  species: string;
+  speak(): string;
+}
+
+// Class `Dog` implementing `Animal`
+class Dog implements Animal {
+  name: string;
+  species: string;
+
+  constructor(name: string, species: string = "Dog") {
+    this.name = name;
+    this.species = species;
+  }
+
+  speak(): string {
+    return `${this.name} says: Woof!`;
+  }
+}
+
+// Class `Cat` implementing `Animal`
+class Cat implements Animal {
+  name: string;
+  species: string;
+
+  constructor(name: string, species: string = "Cat") {
+    this.name = name;
+    this.species = species;
+  }
+
+  speak(): string {
+    return `${this.name} says: Meow!`;
+  }
+}
+
+// Abstract class `Vehicle`
+abstract class Vehicle {
+  protected brand: string;
+
+  constructor(brand: string) {
+    this.brand = brand;
+  }
+
+  abstract getInfo(): string;
+
+  getBrand(): string {
+    return this.brand;
+  }
+}
+
+// Class `Car` extending `Vehicle`
+class Car extends Vehicle {
+  private model: string;
+
+  constructor(brand: string, model: string) {
+    super(brand);
+    this.model = model;
+  }
+
+  getInfo(): string {
+    return `${this.brand} ${this.model}`;
+  }
+}
+
+// Test cases execution
+const dog = new Dog("Buddy");
+const cat = new Cat("Whiskers");
+const car = new Car("Toyota", "Camry");
+
+console.log(dog.speak());   // expected: "Buddy says: Woof!"
+console.log(cat.speak());   // expected: "Whiskers says: Meow!"
+console.log(car.getInfo()); // expected: "Toyota Camry"
+console.log(car.getBrand()); // expected: "Toyota"
