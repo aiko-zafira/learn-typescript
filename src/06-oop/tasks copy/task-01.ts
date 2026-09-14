@@ -55,7 +55,6 @@ class Student implements StudentProfile {
     }
 }
 
-/** Instantiating student objects */
 const students: Student[] = [
     new Student("ST001", "Lionel Messi", 17, "Software Engineering", 11),
     new Student("ST002", "Cristiano Ronaldo", 18, "Computer Science", 12),
