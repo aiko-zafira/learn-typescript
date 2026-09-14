@@ -36,9 +36,10 @@
 
 class Shipping {
     constructor(
+        public name: string,  
         public trackingId: string,
         public destination: string,
-        protected weight: number 
+        protected weight: number,
     ) { }
 
     public getWeight(): number {
@@ -75,18 +76,19 @@ class InternationalShipping extends Shipping {
 }
 
 const shipments: Shipping[] = [
-    new RegularShipping("REG001", "Malang", 3),
-    new ExpressShipping("EXP001", "Surabaya", 2),
-    new SameDayShipping("SMD001", "Jakarta", 4),
-    new InternationalShipping("INT001", "Korea", 8)
+    new RegularShipping("Mark","REG001", "Malang", 3),
+    new ExpressShipping("Lucas","EXP001", "Surabaya", 2),
+    new SameDayShipping("Jeno","SMD001", "Jakarta", 4),
+    new InternationalShipping("Keonho","INT001", "Korea", 8)
 ];
 
 
 for (const shipment of shipments) {
     const cost = shipment.calculateCost();
-    console.log(
-        `[${shipment.trackingId}] Destination: ${shipment.destination} | ` +
-        `Weight: ${shipment.getWeight()} kg | ` +
-        `Cost: Rp${cost.toLocaleString('id-ID')}`
-    );
+    console.log("=====================");
+    console.log(`Name: ${shipment.name}`);
+    console.log(`Destination: ${shipment.destination}`);
+    console.log(`Weight: ${shipment.getWeight()} kg`);
+    console.log(`Cost: Rp${cost.toLocaleString('id-ID')}`);
+    console.log("---------------------");
 }

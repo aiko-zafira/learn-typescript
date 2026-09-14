@@ -68,9 +68,10 @@ for (const payment of payments) {
     const fee = payment.calculateFee();
     const total = payment.getTotalAmount();
     
-    console.log(
-        `[${payment.transactionId}] Amount: Rp${payment.amount.toLocaleString('id-ID')} | ` +
-        `Fee: Rp${fee.toLocaleString('id-ID')} | ` +
-        `Total: Rp${total.toLocaleString('id-ID')}`
-    );
+    console.log("=====================");
+    console.log(`Transaction ID: ${payment.transactionId}`);
+    console.log(`Amount: Rp${payment.amount.toLocaleString('id-ID')}`);
+    console.log(`Fee: Rp${fee.toLocaleString('id-ID')}`);
+    console.log(`Total: Rp${total.toLocaleString('id-ID')}`);
+    console.log("---------------------");
 }
