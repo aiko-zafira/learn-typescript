@@ -28,35 +28,40 @@
  * Then create at least three student objects.
  */
 interface StudentProfile {
-  studentId: string;
-  name: string;
-  age: number;
-  major: string;
-  grade: number;
+    studentId: string;
+    name: string;
+    age: number;
+    major: string;
+    grade: number;
 }
 
 class Student implements StudentProfile {
-  constructor(
-    public studentId: string,
-    public name: string,
-    public age: number,
-    public major: string,
-    public grade: number
-  ) {}
-  showProfile(): void {
-    console.log(`Student ID: ${this.studentId}`);
-    console.log(`Name: ${this.name}`);
-    console.log(`Age: ${this.age}`);
-    console.log(`Major: ${this.major}`);
-    console.log(`Grade: ${this.grade}`);
-  }
+    constructor(
+        public studentId: string,
+        public name: string,
+        public age: number,
+        public major: string,
+        public grade: number
+    ) { }
+
+    showProfile(): void {
+        console.log("--------------------------------------------------");
+        console.log(`Student ID : ${this.studentId}`);
+        console.log(`Name       : ${this.name}`);
+        console.log(`Age        : ${this.age}`);
+        console.log(`Major      : ${this.major}`);
+        console.log(`Grade      : ${this.grade}`);
+        console.log("--------------------------------------------------");
+    }
 }
 
-const student1 = new Student("ST001", "Lionel Messi", 17, "Software Engineering", 11);
-const student2 = new Student("ST002", "Cristiano Ronaldo", 18, "Computer Science", 12);
-const student3 = new Student("ST003", "Neymar Jr.", 16, "Information Technology", 10);
+/** Instantiating student objects */
+const students: Student[] = [
+    new Student("ST001", "Lionel Messi", 17, "Software Engineering", 11),
+    new Student("ST002", "Cristiano Ronaldo", 18, "Computer Science", 12),
+    new Student("ST003", "Neymar Jr.", 16, "Information Technology", 10)
+];
 
-student1.showProfile();
-student2.showProfile();
-student3.showProfile();
-
+for (const student of students) {
+    student.showProfile();
+}

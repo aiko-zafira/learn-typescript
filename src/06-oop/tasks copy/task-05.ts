@@ -52,26 +52,39 @@ class Product {
         initialPrice: number,
         initialStock: number
     ) {
-        this.price = initialPrice;
-        this.stock = initialStock;
+        this.price = initialPrice > 0 ? initialPrice : 0;
+        this.stock = initialStock >= 0 ? initialStock : 0;
     }
 
     addStock(quantity: number): void {
-        if (quantity > 0) {
-            this.stock += quantity;
+        if (quantity <= 0) {
+            console.log(`[Add Stock Failed] Quantity must be greater than 0.`);
+            return;
         }
+        this.stock += quantity;
+        console.log(`[Success] Added ${quantity} unit(s). Current stock: ${this.stock}`);
     }
 
     removeStock(quantity: number): void {
-        if (quantity > 0 && quantity <= this.stock) {
-            this.stock -= quantity;
+        if (quantity <= 0) {
+            console.log(`[Remove Stock Failed] Quantity must be greater than 0.`);
+            return;
         }
+        if (quantity > this.stock) {
+            console.log(`[Remove Stock Failed] Requested ${quantity} unit(s) exceeds available stock (${this.stock}).`);
+            return;
+        }
+        this.stock -= quantity;
+        console.log(`[Success] Removed ${quantity} unit(s). Current stock: ${this.stock}`);
     }
 
     changePrice(newPrice: number): void {
-        if (newPrice > 0) {
-            this.price = newPrice;
+        if (newPrice <= 0) {
+            console.log(`[Price Update Failed] Price must be greater than Rp0.`);
+            return;
         }
+        this.price = newPrice;
+        console.log(`[Success] Price updated to Rp${this.price.toLocaleString('id-ID')}`);
     }
 
     isAvailable(): boolean {
@@ -83,26 +96,24 @@ class Product {
     }
 
     showProductInfo(): void {
-        console.log(`Product ID: ${this.productId}`);
-        console.log(`Name: ${this.productName}`);
-        console.log(`Price: Rp${this.price.toLocaleString()}`);
-        console.log(`Stock: ${this.stock}`);
+        console.log("--------------------------------------------------");
+        console.log(`Product ID      : ${this.productId}`);
+        console.log(`Name            : ${this.productName}`);
+        console.log(`Price           : Rp${this.price.toLocaleString('id-ID')}`);
+        console.log(`Stock           : ${this.stock} unit(s)`);
+        console.log(`Available       : ${this.isAvailable()}`);
+        console.log(`Inventory Value : Rp${this.getInventoryValue().toLocaleString('id-ID')}`);
+        console.log("--------------------------------------------------");
     }
 }
 
-const laptop = new Product(
-    "PRD001",
-    "Gaming Laptop",
-    15000000,
-    20
-);
+const laptop = new Product("PRD001", "Gaming Laptop", 15000000, 20);
 
+laptop.showProductInfo();
 laptop.addStock(5);
-
 laptop.removeStock(3);
-
 laptop.changePrice(14500000);
-
-console.log(laptop.isAvailable());
-
-console.log(laptop.getInventoryValue());
+laptop.addStock(-2);        
+laptop.removeStock(50);     
+laptop.changePrice(0);      
+laptop.showProductInfo();

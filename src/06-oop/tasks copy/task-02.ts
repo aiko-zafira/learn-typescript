@@ -39,30 +39,54 @@
  * - Amount cannot exceed the current balance.
  */
 class DigitalWallet {
-  private balance: number;
-    constructor(public walletId: string, public owner: string, initialBalance: number) {
-      this.balance = initialBalance;
+    private balance: number;
+
+    constructor(
+        public walletId: string,
+        public owner: string,
+        initialBalance: number
+    ) {
+        this.balance = initialBalance >= 0 ? initialBalance : 0;
     }
 
     deposit(amount: number): void {
-      if (amount > 0) {
+        if (amount <= 0) {
+            console.log(`[Deposit Failed] Amount must be greater than Rp0.`);
+            return;
+        }
         this.balance += amount;
-      }
+        console.log(`[Success] Deposited Rp${amount.toLocaleString('id-ID')}`);
     }
 
     withdraw(amount: number): void {
-      if (amount > 0 && amount <= this.balance) {
+        if (amount <= 0) {
+            console.log(`[Withdrawal Failed] Amount must be greater than Rp0.`);
+            return;
+        }
+        if (amount > this.balance) {
+            console.log(`[Withdrawal Failed] Insufficient balance. Current balance: Rp${this.balance.toLocaleString('id-ID')}`);
+            return;
+        }
         this.balance -= amount;
-      }
+        console.log(`[Success] Withdrew Rp${amount.toLocaleString('id-ID')}`);
     }
 
     getBalance(): number {
-      return this.balance;
+        return this.balance;
     }
 
     showWalletInfo(): void {
-      console.log(`Wallet ID: ${this.walletId}`);
-      console.log(`Owner: ${this.owner}`);
-      console.log(`Balance: Rp${this.balance.toLocaleString()}`);
+        console.log("--------------------------------------------------");
+        console.log(`Wallet ID : ${this.walletId}`);
+        console.log(`Owner     : ${this.owner}`);
+        console.log(`Balance   : Rp${this.balance.toLocaleString('id-ID')}`);
+        console.log("--------------------------------------------------");
     }
 }
+
+const wallet = new DigitalWallet("WAL001", "Harry Maguire", 500000);
+wallet.showWalletInfo();
+wallet.deposit(200000);
+wallet.withdraw(150000);
+wallet.withdraw(1000000); 
+wallet.deposit(-50000);   

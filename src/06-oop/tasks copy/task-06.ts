@@ -40,7 +40,8 @@ class Person {
     ) { }
 
     showInfo(): void {
-        console.log(`${this.name}, ${this.age} years old`);
+        console.log(`Name        : ${this.name}`);
+        console.log(`Age         : ${this.age}`);
     }
 }
 
@@ -55,9 +56,11 @@ class Student extends Person {
     }
 
     showInfo(): void {
+        console.log("--------------------------------------------------");
         super.showInfo();
-        console.log(`Student ID: ${this.studentId}`);
-        console.log(`Grade: ${this.grade}`);
+        console.log(`Student ID  : ${this.studentId}`);
+        console.log(`Grade       : ${this.grade}`);
+        console.log("--------------------------------------------------");
     }
 }
 
@@ -72,8 +75,17 @@ class Teacher extends Person {
     }
 
     showInfo(): void {
+        console.log("--------------------------------------------------");
         super.showInfo();
-        console.log(`Employee ID: ${this.employeeId}`);
-        console.log(`Subject: ${this.subject}`);
+        console.log(`Employee ID : ${this.employeeId}`);
+        console.log(`Subject     : ${this.subject}`);
+        console.log("--------------------------------------------------");
     }
+}
+
+const student = new Student("Kylian Mbappé", 17, "ST001", 11);
+const teacher = new Teacher("Cristiano Ronaldo", 38, "EMP001", "Programming");
+const people: Person[] = [student, teacher];
+for (const person of people) {
+    person.showInfo();
 }

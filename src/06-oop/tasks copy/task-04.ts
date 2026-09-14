@@ -48,7 +48,7 @@ class Employee {
         public position: string,
         initialBasicSalary: number
     ) {
-        this.basicSalary = initialBasicSalary;
+        this.basicSalary = initialBasicSalary > 0 ? initialBasicSalary : 0;
         this.bonus = 0;
     }
 
@@ -57,15 +57,21 @@ class Employee {
     }
 
     setBasicSalary(newSalary: number): void {
-        if (newSalary > 0) {
-            this.basicSalary = newSalary;
+        if (newSalary <= 0) {
+            console.log(`[Update Failed] Basic salary must be greater than Rp0.`);
+            return;
         }
+        this.basicSalary = newSalary;
+        console.log(`[Success] Basic salary updated to Rp${newSalary.toLocaleString('id-ID')}`);
     }
 
     addBonus(amount: number): void {
-        if (amount > 0) {
-            this.bonus += amount;
+        if (amount < 0) {
+            console.log(`[Bonus Failed] Bonus cannot be negative.`);
+            return;
         }
+        this.bonus += amount;
+        console.log(`[Success] Added bonus of Rp${amount.toLocaleString('id-ID')}`);
     }
 
     getTotalSalary(): number {
@@ -73,12 +79,14 @@ class Employee {
     }
 
     showProfile(): void {
-        console.log(`Employee ID: ${this.employeeId}`);
-        console.log(`Name: ${this.name}`);
-        console.log(`Position: ${this.position}`);
-        console.log(`Basic Salary: Rp${this.basicSalary.toLocaleString()}`);
-        console.log(`Bonus: Rp${this.bonus.toLocaleString()}`);
-        console.log(`Total Salary: Rp${this.getTotalSalary().toLocaleString()}`);
+        console.log("--------------------------------------------------");
+        console.log(`Employee ID  : ${this.employeeId}`);
+        console.log(`Name         : ${this.name}`);
+        console.log(`Position     : ${this.position}`);
+        console.log(`Basic Salary : Rp${this.basicSalary.toLocaleString('id-ID')}`);
+        console.log(`Bonus        : Rp${this.bonus.toLocaleString('id-ID')}`);
+        console.log(`Total Salary : Rp${this.getTotalSalary().toLocaleString('id-ID')}`);
+        console.log("--------------------------------------------------");
     }
 }
 
@@ -90,5 +98,8 @@ const employee = new Employee(
 );
 
 employee.addBonus(2000000);
-
-console.log(employee.getTotalSalary());
+employee.showProfile();
+employee.setBasicSalary(-5000000); 
+employee.addBonus(-1000000);       
+employee.setBasicSalary(15000000);
+employee.showProfile();
