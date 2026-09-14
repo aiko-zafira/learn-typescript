@@ -38,7 +38,7 @@ class Shipping {
     constructor(
         public trackingId: string,
         public destination: string,
-        protected weight: number // Enforces encapsulation (restricted access)
+        protected weight: number 
     ) { }
 
     public getWeight(): number {
@@ -81,7 +81,7 @@ const shipments: Shipping[] = [
     new InternationalShipping("INT001", "Korea", 8)
 ];
 
-// Clean console.log implementation
+
 for (const shipment of shipments) {
     const cost = shipment.calculateCost();
     console.log(
